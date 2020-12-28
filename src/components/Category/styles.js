@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { Link as LinkRouter } from '@reach/router';
 
 const ImageRoundedSize = css`
   width: 75px;
@@ -6,7 +7,7 @@ const ImageRoundedSize = css`
   border-radius: 50%;
 `;
 
-export const Anchor = styled.a`
+export const Link = styled(LinkRouter)`
   display: flex;
   flex-direction: column;
   text-align: center;

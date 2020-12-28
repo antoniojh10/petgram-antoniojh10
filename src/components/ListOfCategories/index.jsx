@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-indent */
 import React, { useState, useEffect } from 'react';
 import { useCategoriesData } from '../../hooks/useCategoriesData';
 import { Category } from '../Category';
@@ -32,7 +33,7 @@ export const ListOfCategories = () => {
             <Item key={category.id}>
               <Category
                 cover={category.cover}
-                path={category.path}
+                path={`/pet/${category.id}`}
                 emoji={category.emoji}
               />
             </Item>

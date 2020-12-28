@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from '@reach/router';
 import { useMutation } from '@apollo/react-hooks';
 import { likeAnonymousPhoto } from '../../graphql/likeAnonymousPhoto';
 import { FavButton } from '../FavButton';
@@ -26,11 +27,11 @@ export const PhotoCard = ({ id, likes = 0, src = DEFAULT_SRC }) => {
     <Article ref={element}>
       {show && (
         <>
-          <a href={`/?detail=${id}`}>
+          <Link to={`/detail/${id}`}>
             <ImgWrapper>
               <Img src={src} alt={id} />
             </ImgWrapper>
-          </a>
+          </Link>
 
           <FavButton liked={liked} likes={likes} onClick={handleFavClick} />
         </>
