@@ -1,26 +1,26 @@
 import React from 'react';
 import { Link } from '@reach/router';
 import { useMutation } from '@apollo/react-hooks';
-import { likeAnonymousPhoto } from '../../graphql/likeAnonymousPhoto';
+import { likePhoto } from '../../graphql/likePhoto';
 import { FavButton } from '../FavButton';
-import { useLocalStorage } from '../../hooks/useLocalStorage';
+// import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { useNearScreen } from '../../hooks/useNearScreen';
 import { Article, ImgWrapper, Img } from './styles';
 
 const DEFAULT_SRC =
   'https://res.cloudinary.com/midudev/image/upload/w_300/q_80/v1560262103/dogs.png';
 
-export const PhotoCard = ({ id, likes = 0, src = DEFAULT_SRC }) => {
+export const PhotoCard = ({ id, liked, likes = 0, src = DEFAULT_SRC }) => {
   const [show, element] = useNearScreen();
-  const key = `like-${id}`;
-  const [liked, setLiked] = useLocalStorage(key, false);
-  const [toggleLike] = useMutation(likeAnonymousPhoto, {
+  // const key = `like-${id}`;
+  // const [liked, setLiked] = useLocalStorage(key, false);
+  const [toggleLike] = useMutation(likePhoto, {
     variables: { input: { id } },
   });
 
   const handleFavClick = () => {
-    if (!liked) toggleLike();
-    setLiked(!liked);
+    toggleLike();
+    // setLiked(!liked);
   };
 
   return (
