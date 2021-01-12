@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-curly-newline */
 import React from 'react';
-import { Router } from '@reach/router';
+import { Redirect, Router } from '@reach/router';
 import { GlobalStyle } from './styles/GlobalStyles';
 
 import { useUser } from './hooks/useUserContext';
@@ -15,40 +15,33 @@ import { Detail } from './pages/Detail';
 import { Favs } from './pages/Favs';
 import { User } from './pages/User';
 import { NotRegisteredUser } from './pages/NotRegisteredUser';
+import { NotFound } from './pages/NotFound';
 
-const UserLogged = ({ children }) => {
+const App = () => {
   const { isAuth } = useUser();
-  return children({ isAuth });
+
+  return (
+    <>
+      <GlobalStyle />
+      <Logo />
+
+      <Router>
+        <NotFound default />
+        <Home path="/" />
+        <Home path="/pet/:id" />
+        <Detail path="/detail/:detailId" />
+        {!isAuth && <NotRegisteredUser path="/login" />}
+        {!isAuth && <Redirect from="/favs" to="/login" />}
+        {!isAuth && <Redirect from="/user" to="/login" />}
+        {isAuth && <Redirect from="/login" to="/" />}
+
+        <Favs path="/favs" />
+        <User path="/user" />
+      </Router>
+
+      <NavBar />
+    </>
+  );
 };
-
-const App = () => (
-  <>
-    <GlobalStyle />
-    <Logo />
-
-    <Router>
-      <Home path="/" />
-      <Home path="/pet/:id" />
-      <Detail path="/detail/:detailId" />
-    </Router>
-
-    <UserLogged>
-      {({ isAuth }) =>
-        isAuth ? (
-          <Router>
-            <Favs path="/favs" />
-            <User path="/user" />
-          </Router>
-        ) : (
-          <Router>
-            <NotRegisteredUser path="/favs" />
-            <NotRegisteredUser path="/user" />
-          </Router>
-        )
-      }
-    </UserLogged>
-    <NavBar />
-  </>
-);
 
 export default App;

@@ -19,7 +19,12 @@ const useProvideUser = () => {
     window.sessionStorage.setItem('token', token);
   };
 
-  return { isAuth, activateAuth };
+  const removeAuth = () => {
+    setIsAuth(null);
+    window.sessionStorage.removeItem('token');
+  };
+
+  return { isAuth, activateAuth, removeAuth };
 };
 
 export const UserContextProvider = ({ children }) => {

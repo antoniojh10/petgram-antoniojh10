@@ -1,7 +1,8 @@
 import React from 'react';
 import { SiDatadog } from 'react-icons/si';
 import { useInputValue } from '../../hooks/useInputValue';
-import { Form, Input, Button, Title } from './styles';
+import { Form, Input, Title } from './styles';
+import { SubmitButton } from '../SubmitButton';
 
 export const UserForm = ({
   title,
@@ -31,9 +32,9 @@ export const UserForm = ({
         disabled={loading}
         data={password}
       />
-      <Button type="button" onClick={handleClick} disabled={loading}>
+      <SubmitButton type="button" onClick={handleClick} disabled={loading}>
         {loading ? 'Loading...' : title}
-      </Button>
+      </SubmitButton>
       {error && <span>{error}</span>}
     </Form>
   );
