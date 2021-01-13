@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/midudev/curso-platzi-react-avanzado.git"
+    "url": "git+https://github.com/antoniojh10/petgram-antoniojh10.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/midudev/curso-platzi-react-avanzado/issues"
+    "url": "https://github.com/antoniojh10/petgram-antoniojh10/issues"
   },
-  "homepage": "https://github.com/midudev/curso-platzi-react-avanzado#readme",
+  "homepage": "https://github.com/antoniojh10/petgram-antoniojh10#readme",
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.10",
