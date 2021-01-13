@@ -6,7 +6,7 @@ import CategorySkeleton from '../CategorySkeleton';
 import { List, Item } from './styles';
 // import { categories as mockCategories } from '../../../api/db.json';
 
-export const ListOfCategories = () => {
+const ListOfCategoriesComponent = () => {
   const [showFixed, setShowFixed] = useState(false);
   const { categories, loading } = useCategoriesData();
 
@@ -48,3 +48,5 @@ export const ListOfCategories = () => {
     </>
   );
 };
+
+export const ListOfCategories = React.memo(ListOfCategoriesComponent);

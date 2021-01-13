@@ -6,6 +6,8 @@
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack-cli serve --mode development",
+    "build:dev": "webpack --mode development",
+    "serve:dev": "npm run build:dev && npx serve dist -s",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -39,7 +41,9 @@
     "prettier": "^2.2.1",
     "webpack": "^5.3.0",
     "webpack-cli": "^4.1.0",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "webpack-pwa-manifest": "^4.3.0",
+    "workbox-webpack-plugin": "^6.0.2"
   },
   "dependencies": {
     "@apollo/react-hooks": "^4.0.0",
@@ -47,6 +51,7 @@
     "apollo-boost": "^0.4.9",
     "graphql": "^15.4.0",
     "intersection-observer": "^0.12.0",
+    "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",

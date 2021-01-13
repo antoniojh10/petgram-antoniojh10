@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from '@reach/router';
+import PropTypes from 'prop-types';
 import { useMutation } from '@apollo/react-hooks';
 import { likePhoto } from '../../graphql/likePhoto';
 import { FavButton } from '../FavButton';
@@ -38,4 +39,20 @@ export const PhotoCard = ({ id, liked, likes = 0, src = DEFAULT_SRC }) => {
       )}
     </Article>
   );
+};
+
+PhotoCard.propTypes = {
+  id: PropTypes.string.isRequired,
+  liked: PropTypes.bool.isRequired,
+  src: PropTypes.string.isRequired,
+  likes: (props, propName, _componentName) => {
+    const propValue = props[propName];
+
+    if (propValue === undefined) {
+      return new Error(propName, 'value must be defined');
+    }
+    if (propValue < 0) {
+      return new Error(propName, 'value must be greater than 0');
+    }
+  },
 };

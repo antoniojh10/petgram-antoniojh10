@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-curly-newline */
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Redirect, Router } from '@reach/router';
 import { GlobalStyle } from './styles/GlobalStyles';
 
@@ -12,16 +12,17 @@ import { NavBar } from './components/NavBar';
 // Pages
 import { Home } from './pages/Home';
 import { Detail } from './pages/Detail';
-import { Favs } from './pages/Favs';
 import { User } from './pages/User';
 import { NotRegisteredUser } from './pages/NotRegisteredUser';
 import { NotFound } from './pages/NotFound';
+
+const Favs = React.lazy(() => import('./pages/Favs'));
 
 const App = () => {
   const { isAuth } = useUser();
 
   return (
-    <>
+    <Suspense fallback={<div />}>
       <GlobalStyle />
       <Logo />
 
@@ -40,7 +41,7 @@ const App = () => {
       </Router>
 
       <NavBar />
-    </>
+    </Suspense>
   );
 };
 

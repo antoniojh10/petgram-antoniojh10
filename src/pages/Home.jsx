@@ -6,7 +6,7 @@ import { ListOfPhotoCards } from '../components/ListOfPhotoCards';
 /**
  * Hola mundo
  */
-export const Home = ({ id }) => (
+const HomePage = ({ id }) => (
   <Layout
     title="Tu app de fotos de mascotas"
     subtitle="Con Petgram puedes encontrar fotos de animales domésticos muy bonitos"
@@ -14,4 +14,9 @@ export const Home = ({ id }) => (
     <ListOfCategories />
     <ListOfPhotoCards categoryId={id} />
   </Layout>
+);
+
+export const Home = React.memo(
+  HomePage,
+  (prevProps, props) => prevProps.id === props.id
 );
