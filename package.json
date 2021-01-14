@@ -20,7 +20,6 @@
   "bugs": {
     "url": "https://github.com/antoniojh10/petgram-antoniojh10/issues"
   },
-  "homepage": "https://github.com/antoniojh10/petgram-antoniojh10#readme",
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.10",
