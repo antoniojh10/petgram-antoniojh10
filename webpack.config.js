@@ -88,15 +88,15 @@ module.exports = {
             cacheName: 'images',
           },
         },
-        /* {
+        {
           urlPattern: new RegExp(
-            'https://(res.cloudinary.com|images.unplash.com)'
+            'https://petgram-server.antoniojh10.vercel.app/'
           ),
-          handler: 'CacheFirst',
+          handler: 'NetworkFirst',
           options: {
-            cacheName: 'images',
+            cacheName: 'api',
           },
-        }, */
+        },
       ],
     }),
   ],
