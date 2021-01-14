@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://petgram-antoniojh10.vercel.app",
+  "baseUrl": "https://petgram-antoniojh10.vercel.app/",
   "chromeWebSecurity": false,
   "viewportWidth": 500,
   "viewportHeight": 800
