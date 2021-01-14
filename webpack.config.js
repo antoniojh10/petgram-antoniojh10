@@ -57,7 +57,6 @@ module.exports = {
       orientation: 'portrait',
       display: 'standalone',
       start_url: '/',
-      scope: '/',
       crossorigin: 'use-credentials',
       icons: [
         {
